@@ -1,0 +1,28 @@
+{
+  "name": "evalmatrix-ai-platform",
+  "version": "2.0.0",
+  "description": "EvalMatrix AI - Autonomous AI Technical Interview Simulator & Career Intelligence Platform created by Shubham Pandey",
+  "author": "Shubham Pandey <shubham230884@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix Backend & npm run dev --prefix Frontend",
+    "dev:backend": "npm run dev --prefix Backend",
+    "dev:frontend": "npm run dev --prefix Frontend",
+    "build:frontend": "npm run build --prefix Frontend",
+    "install:backend": "npm install --prefix Backend",
+    "install:frontend": "npm install --prefix Frontend",
+    "install:all": "npm install --prefix Backend && npm install --prefix Frontend"
+  },
+  "keywords": [
+    "evalmatrix",
+    "ai",
+    "interview-prep",
+    "gemini",
+    "ats-resume",
+    "career-strategy",
+    "react",
+    "nodejs",
+    "shubham-pandey"
+  ]
+}
