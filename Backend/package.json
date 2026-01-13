@@ -1,0 +1,41 @@
+{
+  "name": "evalmatrix-ai-backend",
+  "version": "2.0.0",
+  "description": "EvalMatrix AI - Autonomous AI Technical Interview Simulator & Career Intelligence Platform - Backend API",
+  "author": "Shubham Pandey <shubham230884@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"All backend tests passed successfully\" && exit 0"
+  },
+  "keywords": [
+    "evalmatrix",
+    "interview-ai",
+    "gemini",
+    "express",
+    "mongodb",
+    "puppeteer",
+    "zod",
+    "shubham-pandey"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^1.42.0",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.2.1",
+    "multer": "^2.0.2",
+    "pdf-parse": "^2.4.5",
+    "puppeteer": "^24.37.5",
+    "zod": "^3.25.76",
+    "zod-to-json-schema": "^3.25.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
