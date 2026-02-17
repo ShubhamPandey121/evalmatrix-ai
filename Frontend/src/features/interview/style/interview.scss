@@ -1,0 +1,923 @@
+// ── Variables ────────────────────────────────────────────────────────────────
+$bg-page:        #0d1117;
+$bg-card:        #161b22;
+$bg-panel:       #1c2230;
+$bg-input:       #1e2535;
+$border-color:   #2a3348;
+$text-primary:   #e6edf3;
+$text-muted:     #8b949e;
+$accent:         #ff2d78;
+
+$severity-high:   #ff4d4d;
+$severity-medium: #f5a623;
+$severity-low:    #3fb950;
+
+// ── Page Shell ───────────────────────────────────────────────────────────────
+.interview-page {
+    width: 100%;
+    min-height: calc(100vh - 65px);
+    background-color: $bg-page;
+    color: $text-primary;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+// ── Top Sub-Bar ───────────────────────────────────────────────────────────────
+.interview-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .back-link-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: none;
+        border: 1px solid $border-color;
+        border-radius: 0.5rem;
+        color: $text-muted;
+        font-size: 0.825rem;
+        padding: 0.5rem 0.85rem;
+        cursor: pointer;
+        transition: all 0.15s;
+
+        &:hover {
+            color: $text-primary;
+            border-color: #3b4866;
+            background-color: $bg-panel;
+        }
+    }
+
+    .role-title-heading {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: $text-primary;
+            margin: 0;
+        }
+
+        .company-badge {
+            font-size: 0.75rem;
+            color: $accent;
+            background-color: rgba($accent, 0.1);
+            border: 1px solid rgba($accent, 0.25);
+            padding: 0.2rem 0.6rem;
+            border-radius: 2rem;
+            font-weight: 600;
+        }
+    }
+
+    .export-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        .export-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background-color: $bg-panel;
+            border: 1px solid $border-color;
+            border-radius: 0.5rem;
+            color: $text-primary;
+            font-size: 0.825rem;
+            font-weight: 500;
+            padding: 0.55rem 0.9rem;
+            cursor: pointer;
+            transition: all 0.15s;
+
+            &:hover {
+                border-color: $accent;
+                color: $accent;
+            }
+        }
+
+        .download-resume-btn {
+            padding: 0.55rem 1.1rem;
+            font-size: 0.85rem;
+        }
+    }
+}
+
+// ── 3-Column Layout ───────────────────────────────────────────────────────────
+.interview-layout {
+    display: flex;
+    width: 100%;
+    background-color: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: 1rem;
+    overflow: hidden;
+    min-height: 700px;
+
+    @media (max-width: 992px) {
+        flex-direction: column;
+    }
+}
+
+.interview-divider {
+    width: 1px;
+    background-color: $border-color;
+    flex-shrink: 0;
+
+    @media (max-width: 992px) {
+        width: 100%;
+        height: 1px;
+    }
+}
+
+// ── Left Nav ─────────────────────────────────────────────────────────────────
+.interview-nav {
+    width: 220px;
+    flex-shrink: 0;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width: 992px) {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    &__label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $text-muted;
+        padding: 0 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        width: 100%;
+        padding: 0.7rem 0.85rem;
+        background: none;
+        border: none;
+        border-radius: 0.5rem;
+        color: $text-muted;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        text-align: left;
+        transition: all 0.15s;
+
+        &:hover {
+            background-color: $bg-panel;
+            color: $text-primary;
+        }
+
+        &--active {
+            background-color: rgba($accent, 0.1);
+            color: $accent;
+            font-weight: 600;
+
+            .interview-nav__icon svg {
+                stroke: $accent;
+            }
+        }
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .nav-footer-box {
+        padding-top: 1rem;
+        border-top: 1px solid $border-color;
+
+        .author-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+
+            .author-tag {
+                font-size: 0.7rem;
+                font-weight: 700;
+                color: $accent;
+            }
+
+            .author-name {
+                font-size: 0.75rem;
+                color: $text-muted;
+            }
+        }
+    }
+}
+
+// ── Center Content ────────────────────────────────────────────────────────────
+.interview-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 180px);
+
+    @media (max-width: 992px) {
+        max-height: unset;
+        padding: 1.5rem;
+    }
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid $border-color;
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin: 0;
+    }
+
+    &__count {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: $text-muted;
+        background-color: $bg-panel;
+        padding: 0.2rem 0.7rem;
+        border-radius: 2rem;
+        border: 1px solid $border-color;
+    }
+}
+
+// ── Question Cards ────────────────────────────────────────────────────────────
+.q-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.q-card {
+    background-color: $bg-panel;
+    border: 1px solid $border-color;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.2s;
+
+    &:hover {
+        border-color: #3b4866;
+    }
+
+    &--mastered {
+        border-left: 3px solid $severity-low;
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.85rem;
+        padding: 1rem 1.25rem;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    &__index {
+        flex-shrink: 0;
+        font-size: 0.72rem;
+        font-weight: 800;
+        color: $accent;
+        background-color: rgba($accent, 0.1);
+        border: 1px solid rgba($accent, 0.2);
+        border-radius: 0.35rem;
+        padding: 0.2rem 0.45rem;
+        margin-top: 2px;
+
+        &--star {
+            color: #a78bfa;
+            background-color: rgba(167, 139, 250, 0.1);
+            border-color: rgba(167, 139, 250, 0.25);
+        }
+    }
+
+    &__meta-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    &__badges {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        .difficulty-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.25rem;
+
+            &.difficulty--easy { color: $severity-low; background-color: rgba($severity-low, 0.1); }
+            &.difficulty--medium { color: $severity-medium; background-color: rgba($severity-medium, 0.1); }
+            &.difficulty--hard { color: $severity-high; background-color: rgba($severity-high, 0.1); }
+        }
+
+        .category-badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #58a6ff;
+            background-color: rgba(88, 166, 255, 0.1);
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.25rem;
+
+            &--star {
+                color: #a78bfa;
+                background-color: rgba(167, 139, 250, 0.1);
+            }
+        }
+    }
+
+    &__question {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: $text-primary;
+        line-height: 1.45;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+
+        .action-icon-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: $text-muted;
+            cursor: pointer;
+            padding: 0.35rem;
+            border-radius: 0.35rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+
+            &:hover {
+                color: $text-primary;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-color: $border-color;
+            }
+
+            &--active {
+                color: $accent;
+            }
+
+            &--checked {
+                color: $severity-low;
+            }
+        }
+    }
+
+    &__chevron {
+        color: $text-muted;
+        transition: transform 0.2s;
+        margin-left: 0.25rem;
+
+        &--open {
+            transform: rotate(180deg);
+            color: $accent;
+        }
+    }
+
+    &__body {
+        padding: 0 1.25rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-top: 1px solid $border-color;
+        padding-top: 1rem;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+
+        p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+    }
+
+    &__tag {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.15rem 0.5rem;
+        border-radius: 0.25rem;
+        width: fit-content;
+
+        &--intention {
+            color: #a78bfa;
+            background-color: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+        }
+
+        &--answer {
+            color: #3fb950;
+            background-color: rgba(63, 185, 80, 0.1);
+            border: 1px solid rgba(63, 185, 80, 0.2);
+        }
+    }
+}
+
+// ── STAR Grid ─────────────────────────────────────────────────────────────────
+.star-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+
+    .star-box {
+        background-color: $bg-input;
+        border: 1px solid $border-color;
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+
+        p {
+            font-size: 0.8rem;
+            color: #c9d1d9;
+            margin: 0;
+            line-height: 1.45;
+        }
+    }
+
+    .star-pill {
+        font-size: 0.65rem;
+        font-weight: 800;
+        color: #a78bfa;
+        text-transform: uppercase;
+    }
+}
+
+// ── Road Map Timeline ─────────────────────────────────────────────────────────
+.roadmap-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.roadmap-day {
+    background-color: $bg-panel;
+    border: 1px solid $border-color;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: all 0.2s;
+
+    &--completed {
+        border-color: rgba($severity-low, 0.4);
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    &__badge {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: $accent;
+        background-color: rgba($accent, 0.1);
+        border: 1px solid rgba($accent, 0.25);
+        padding: 0.15rem 0.55rem;
+        border-radius: 2rem;
+    }
+
+    &__focus {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-primary;
+        flex: 1;
+    }
+
+    .task-progress-badge {
+        font-size: 0.7rem;
+        color: $text-muted;
+    }
+
+    &__tasks {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: #c9d1d9;
+            cursor: pointer;
+            padding: 0.35rem 0.5rem;
+            border-radius: 0.35rem;
+            transition: background-color 0.15s;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.03);
+            }
+
+            input[type="checkbox"] {
+                cursor: pointer;
+                accent-color: $accent;
+            }
+
+            &--checked {
+                color: $text-muted;
+                text-decoration: line-through;
+            }
+        }
+    }
+}
+
+// ── Mock Answer Lab ───────────────────────────────────────────────────────────
+.mock-lab {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    .lab-selector {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+
+        label {
+            font-size: 0.8rem;
+            color: $text-muted;
+            font-weight: 500;
+        }
+
+        select {
+            background-color: $bg-input;
+            border: 1px solid $border-color;
+            border-radius: 0.5rem;
+            color: $text-primary;
+            padding: 0.65rem 0.85rem;
+            font-size: 0.875rem;
+            outline: none;
+        }
+    }
+
+    .lab-prompt-card {
+        background-color: $bg-panel;
+        border: 1px solid $border-color;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .prompt-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .prompt-badge {
+                font-size: 0.7rem;
+                font-weight: 700;
+                color: $accent;
+                text-transform: uppercase;
+            }
+        }
+
+        .timer-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .timer-text {
+                font-family: monospace;
+                font-size: 0.95rem;
+                font-weight: 700;
+                color: $severity-medium;
+            }
+
+            .timer-btn {
+                background: none;
+                border: 1px solid $border-color;
+                border-radius: 0.35rem;
+                color: $text-muted;
+                font-size: 0.72rem;
+                padding: 0.2rem 0.5rem;
+                cursor: pointer;
+
+                &:hover {
+                    color: $text-primary;
+                }
+            }
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            color: $text-primary;
+            margin: 0;
+        }
+
+        .intention-hint {
+            font-size: 0.8rem;
+            color: $text-muted;
+            margin: 0;
+        }
+    }
+
+    .lab-editor {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        label {
+            font-size: 0.825rem;
+            font-weight: 500;
+            color: $text-primary;
+        }
+
+        textarea {
+            width: 100%;
+            background-color: $bg-input;
+            border: 1px solid $border-color;
+            border-radius: 0.6rem;
+            color: $text-primary;
+            padding: 0.85rem 1rem;
+            font-family: inherit;
+            font-size: 0.875rem;
+            resize: vertical;
+            outline: none;
+            line-height: 1.5;
+
+            &:focus {
+                border-color: $accent;
+            }
+        }
+
+        .lab-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .word-count {
+                font-size: 0.75rem;
+                color: $text-muted;
+            }
+
+            .evaluate-btn {
+                background: linear-gradient(135deg, $accent 0%, #bd0a48 100%);
+                color: #fff;
+                border: none;
+                border-radius: 0.5rem;
+                padding: 0.6rem 1.25rem;
+                font-size: 0.85rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: opacity 0.15s;
+
+                &:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+
+    .evaluation-result {
+        background-color: rgba(88, 166, 255, 0.05);
+        border: 1px solid rgba(88, 166, 255, 0.25);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .eval-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h4 {
+                color: #58a6ff;
+                font-size: 1rem;
+                margin: 0;
+            }
+
+            .eval-score {
+                font-size: 1.1rem;
+                font-weight: 800;
+                color: #3fb950;
+            }
+        }
+
+        .eval-feedback {
+            font-size: 0.875rem;
+            color: #c9d1d9;
+            margin: 0;
+        }
+
+        .eval-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            font-size: 0.825rem;
+
+            strong {
+                color: $text-primary;
+            }
+
+            ul {
+                margin: 0 0 0 1.25rem;
+                color: #c9d1d9;
+            }
+        }
+    }
+}
+
+// ── Right Sidebar ─────────────────────────────────────────────────────────────
+.interview-sidebar {
+    width: 270px;
+    flex-shrink: 0;
+    padding: 1.75rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    @media (max-width: 992px) {
+        width: 100%;
+    }
+}
+
+.sidebar-divider {
+    height: 1px;
+    background-color: $border-color;
+}
+
+.sidebar-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $text-muted;
+    margin-bottom: 0.4rem;
+}
+
+// Match Score Gauge
+.match-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+
+    &__label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: $text-muted;
+        margin: 0;
+        align-self: flex-start;
+    }
+
+    &__ring {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 4px solid;
+        background-color: rgba(22, 27, 34, 0.6);
+
+        &.score--high { border-color: $severity-low; }
+        &.score--mid { border-color: $severity-medium; }
+        &.score--low { border-color: $severity-high; }
+    }
+
+    &__value {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: $text-primary;
+        line-height: 1;
+    }
+
+    &__pct {
+        font-size: 0.75rem;
+        color: $text-muted;
+        margin-top: -2px;
+    }
+
+    &__sub {
+        margin: 0;
+        font-size: 0.75rem;
+        color: $severity-low;
+        text-align: center;
+        line-height: 1.35;
+    }
+}
+
+// Executive Fit Box
+.fit-summary-box {
+    display: flex;
+    flex-direction: column;
+
+    .fit-text {
+        font-size: 0.8rem;
+        color: #8b949e;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+// Skill Gaps
+.skill-gaps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    &__label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: $text-muted;
+        margin: 0;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .skill-gap-card {
+        background-color: $bg-panel;
+        border: 1px solid $border-color;
+        border-radius: 0.5rem;
+        padding: 0.65rem 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+
+        .skill-gap-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .severity-pill {
+            font-size: 0.65rem;
+            color: $text-muted;
+            text-transform: uppercase;
+        }
+
+        .gap-tip {
+            margin: 0;
+            font-size: 0.75rem;
+            color: #8b949e;
+            line-height: 1.35;
+        }
+    }
+}
+
+.skill-tag {
+    font-size: 0.775rem;
+    font-weight: 600;
+
+    &--high { color: $severity-high; }
+    &--medium { color: $severity-medium; }
+    &--low { color: $severity-low; }
+}
